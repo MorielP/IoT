@@ -5,15 +5,15 @@
 
 #define PIN1        D8 // On Trinket or Gemma, suggest changing this to 1
 
-#define NUMPIXELS 64 // Popular NeoPixel ring size
+#define NUMPIXELS 24 // Popular NeoPixel ring size
 Adafruit_NeoPixel pixels1(NUMPIXELS, PIN1, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels2(NUMPIXELS, D6, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel pixels3(NUMPIXELS, D3, NEO_GRB + NEO_KHZ800);
 
 #define DELAYVAL 500 // Time (in milliseconds) to pause between pixels
-Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(64, D8, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(64, D6, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(64, D3, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(NUMPIXELS, D8, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(NUMPIXELS, D6, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip3 = Adafruit_NeoPixel(NUMPIXELS, D3, NEO_GRB + NEO_KHZ800);
 
 #define BLYNK_TEMPLATE_ID "TMPL68y7Hm2yy"
 #define BLYNK_TEMPLATE_NAME "ESP8266"
@@ -52,7 +52,7 @@ BLYNK_WRITE(V0)
 int interval = 0;
 BLYNK_WRITE(V1)
 {
-  interval = param.asInt() * 10;
+  interval = param.asInt() * 50;
 }
 
 int userIsInControl = 0;
